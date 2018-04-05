@@ -1,0 +1,32 @@
+syntax="proto3";
+
+import "google/protobuf/empty.proto";
+
+package grpc;
+
+message AddJadwalShiftReq {
+    string ShiftCode=1;
+    string JadwalMasuk=2;
+    string JadwalPulang=3;
+    int32 Status=4;
+    string CreatedBy=5;
+    string CreatedOn=6;
+    string UpdatedBy=7;
+    string UpdatedOn=8;
+}
+
+message UpdateJadwalShiftReq{
+    string ShiftCode=1;
+    string JadwalMasuk=2;
+    string JadwalPulang=3;
+    int32 Status=4;
+    string CreatedBy=5;
+    string CreatedOn=6;
+    string UpdatedBy=7;
+    string UpdatedOn=8;
+}
+
+service JadwalShiftService {
+    rpc AddJadwalShift(AddJadwalShiftReq) returns (google.protobuf.Empty) {};
+    rpc UpdateJadwalShift(UpdateJadwalShiftReq) returns (google.protobuf.Empty){};
+}

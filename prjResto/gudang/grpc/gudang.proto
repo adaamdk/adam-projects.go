@@ -1,0 +1,52 @@
+syntax="proto3";
+
+import "google/protobuf/empty.proto";
+
+package grpc;
+//5.
+message AddGudangReq {
+    string ID=1;
+    string namaGudang=2;
+    string alamatGudang=3;
+    string luasGudang=4;
+    int32 status=5;
+    string createdBy=6;
+    string createdOn=7;
+    string updatedBy=8;
+    string updatedOn=9;
+    string keterangan=10;
+}
+
+message UpdateGudangReq{
+    string ID=1;
+    string namaGudang=2;
+    string alamatGudang=3;
+    string luasGudang=4;
+    int32 status=5;
+    string createdBy=6;
+    string createdOn=7;
+    string updatedBy=8;
+    string updatedOn=9;
+    string keterangan=10;
+
+}
+
+message ReadGudangByKeterangan{
+    string ID=1;
+    string namaGudang=2;
+    string keterangan=3;
+}
+
+message ReadGudangByKeteranganReq{
+    string keterangan=1;
+}
+
+message ReadGudangByKeteranganResp{
+    repeated ReadGudangByKeterangan allGudang=1;
+}
+
+service GudangService {
+    rpc AddGudang(AddGudangReq) returns (google.protobuf.Empty) {};
+    rpc UpdateGudang(UpdateGudangReq) returns (google.protobuf.Empty){};
+    rpc ReadGudangByKeterangan (ReadGudangByKeteranganReq) returns (ReadGudangByKeteranganResp);
+}
